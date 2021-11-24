@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".Common.Identity">
+
+    <TextView
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/tvidentity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tell us who you are"
+        android:layout_marginTop="70dp"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:textColor="@color/black" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:orientation="vertical"
+        android:id="@+id/ll_user"
+        app:layout_constraintBottom_toTopOf="@id/view"
+        android:elevation="20dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintTop_toBottomOf="@id/tvidentity"
+        android:layout_marginEnd="100dp"
+        android:background="@drawable/btn_background">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/users"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="User"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:gravity="center" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_service_provider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:orientation="vertical"
+        android:elevation="20dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintTop_toBottomOf="@id/view"
+        android:layout_marginEnd="100dp"
+        android:background="@drawable/btn_background">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/customer_service"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Service Provider"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+
+            android:gravity="center" />
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/view" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

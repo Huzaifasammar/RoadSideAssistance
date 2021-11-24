@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/background"
+    android:layout_height="match_parent"
+    tools:context=".Common.PutOtp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Relativeotp"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:id="@+id/ivlogo"
+            android:layout_marginTop="50dp"
+            android:layout_centerHorizontal="true"
+            app:lottie_rawRes="@raw/phone"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true">
+        </com.airbnb.lottie.LottieAnimationView>
+
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="237dp"
+            android:layout_height="76dp"
+            android:layout_below="@id/ivlogo"
+            android:layout_marginTop="20dp"
+            android:text="We need to verify your phone"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/black"
+            android:textSize="28sp"/>
+
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="We have sent you an SMS with a code to"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/textView5"
+            android:textColor="@color/teal_200"/>
+        <TextView
+            android:id="@+id/tvnumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="*******6789"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/textView4"
+            android:textColor="@color/teal_200"/>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/second_RL"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/tvnumber"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/second_otp"
+                android:text="00:36"
+                android:layout_alignParentStart="true"
+                android:textColor="@color/red"
+                android:gravity="center"
+                android:textSize="16sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Seconds"
+                android:id="@+id/timecount"
+                android:layout_toEndOf="@id/second_otp"
+                android:textColor="@color/red"
+                android:gravity="center"
+                android:textSize="16sp"/>
+        </RelativeLayout>
+
+
+        <com.chaos.view.PinView
+            android:id="@+id/pin_view"
+            style="@style/PinWidget.PinView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_below="@id/second_RL"
+            android:layout_marginTop="20dp"
+            android:elevation="15dp"
+            android:itemBackground="@drawable/btn_background"
+            android:layout_centerHorizontal="true"
+            android:cursorVisible="true"
+            android:inputType="number"
+            app:itemCount="6"
+            android:padding="5dp"
+            app:itemHeight="40dp"
+            app:itemSpacing="10dp"
+            app:itemRadius="5dp"
+            app:itemWidth="40dp"
+            app:lineColor="@color/black" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/verify_number_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/btn_background"
+            android:text="Verify Number"
+            android:backgroundTint="@color/btncolor2"
+            android:focusable="true"
+            android:textAllCaps="false"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:padding="20dp"
+            android:textColor="@color/white"
+            android:textSize="19sp"
+            android:layout_below="@id/pin_view"/>
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/spin_kit_verify"
+            style="@style/SpinKitView.Large.Circle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:visibility="invisible"
+            android:layout_marginBottom="20dp"
+            android:layout_below="@id/pin_view"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:SpinKit_Color="@color/btncolor2"
+            app:SpinKit_Style="ThreeBounce"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="120dp"
+            android:layout_below="@id/verify_number_btn"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/do_not"
+                android:text="Didn't receive OTP?"
+                android:layout_alignParentStart="true"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:textSize="16sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Resend"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:id="@+id/ResendCode"
+                android:layout_toEndOf="@id/do_not"
+                android:textColor="@color/red"
+                android:gravity="center"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
