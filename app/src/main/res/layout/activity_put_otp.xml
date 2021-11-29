@@ -98,16 +98,18 @@
             android:layout_below="@id/second_RL"
             android:layout_marginTop="20dp"
             android:elevation="15dp"
-            android:itemBackground="@drawable/btn_background"
+            android:textColor="@color/btncolor2"
+            android:itemBackground="@color/white"
             android:layout_centerHorizontal="true"
             android:cursorVisible="true"
             android:inputType="number"
+            android:textCursorDrawable="@drawable/cursor"
             app:itemCount="6"
-            android:padding="5dp"
-            app:itemHeight="40dp"
+            android:padding="10dp"
+            app:itemHeight="50dp"
             app:itemSpacing="10dp"
-            app:itemRadius="5dp"
-            app:itemWidth="40dp"
+            app:itemRadius="10dp"
+            app:itemWidth="50dp"
             app:lineColor="@color/black" />
 
         <androidx.appcompat.widget.AppCompatButton

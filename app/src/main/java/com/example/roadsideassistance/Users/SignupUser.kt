@@ -1,15 +1,20 @@
 package com.example.roadsideassistance.Users
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.example.roadsideassistance.Common.Identity
 import com.example.roadsideassistance.Common.Login
 import com.example.roadsideassistance.R
 import com.example.roadsideassistance.databinding.ActivitySignupUserBinding
+import java.net.URI
 
 class SignupUser : AppCompatActivity() {
+    val RESULT_LOAD_IMAGE = 0
+    lateinit var image:Uri
     lateinit var binding: ActivitySignupUserBinding
     override fun onBackPressed() {
         super.onBackPressed()
@@ -26,5 +31,77 @@ class SignupUser : AppCompatActivity() {
             startActivity(Intent(this,Login::class.java))
             finish()
         })
+        binding.SignupBtn.setOnClickListener(View.OnClickListener {
+            startActivity(Intent(this,Login::class.java))
+            finish()
+        })
+        binding.RLImage.setOnClickListener(View.OnClickListener {
+            val i = Intent(
+                Intent.ACTION_PICK,
+                MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+            )
+            startActivityForResult(i, RESULT_LOAD_IMAGE)
+        })
+    }
+    fun isValidEmail():Boolean{
+        val email:String=binding.emailSignup.text.toString()
+        if(email.isEmpty())
+        {
+            binding.emailSignup.setError("email required")
+            return false
+        }
+        else if (!email.matches(Regex(pattern = "[a-zA-Z0-9._-]+@[a-z]+.+[a-z]+")))
+        {
+            binding.emailSignup.setError("invalid email")
+            return false
+        }
+        else
+        {
+            binding.emailSignup.setError(null)
+            return true
+        }
+
+    }
+    fun isValidPassword():Boolean{
+        val password:String=binding.passwordSignup.text.toString()
+        if(password.isEmpty())
+        {
+            binding.passwordSignup.setError("password required")
+            return false
+        }
+        else if(password.length<6)
+        {
+            binding.passwordSignup.setError("password must be greater or equal to 6 ")
+            return false
+        }
+        else
+        {
+            binding.passwordSignup.setError(null)
+            return true
+        }
+    }
+    fun isvalidUsername():Boolean {
+        val username=binding.nameSignup.text.toString()
+        if(username.isEmpty())
+        {
+            binding.nameSignup.setError("username required")
+            return false
+        }
+        else
+        {
+            binding.nameSignup.setError(null)
+            return true
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == RESULT_LOAD_IMAGE) {
+            if (resultCode == RESULT_OK) {
+                assert(data != null)
+                image = data!!.data!!
+                binding.image.setImageURI(image)
+            }
+        }
     }
 }
