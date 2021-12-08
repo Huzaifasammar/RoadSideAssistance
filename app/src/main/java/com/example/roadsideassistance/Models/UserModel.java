@@ -1,14 +1,23 @@
 package com.example.roadsideassistance.Models;
 
 public class UserModel {
-    String ImageURL,username,email,password,id;
+    String ImageURL,username,email,password,id,device_token;
 
-    public UserModel(String imageURL, String username, String email, String password, String id) {
+    public UserModel(String imageURL, String username, String email, String password, String id,String device_token) {
         ImageURL = imageURL;
         this.username = username;
         this.email = email;
         this.password = password;
         this.id = id;
+        this.device_token=device_token;
+    }
+
+    public String getDevice_token() {
+        return device_token;
+    }
+
+    public void setDevice_token(String device_token) {
+        this.device_token = device_token;
     }
 
     public String getImageURL() {

@@ -5,16 +5,29 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.roadsideassistance.Common.Identity
 import com.example.roadsideassistance.Common.Login
 import com.example.roadsideassistance.R
 import com.example.roadsideassistance.databinding.ActivitySignupUserBinding
-import java.net.URI
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.gms.tasks.OnFailureListener
+import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseException
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import java.util.*
 
 class SignupUser : AppCompatActivity() {
     val RESULT_LOAD_IMAGE = 0
     lateinit var image:Uri
+    lateinit var auth:FirebaseAuth
+    lateinit var storage:StorageReference
+    lateinit var reference:DatabaseReference
     lateinit var binding: ActivitySignupUserBinding
     override fun onBackPressed() {
         super.onBackPressed()
@@ -27,13 +40,15 @@ class SignupUser : AppCompatActivity() {
         window.decorView.systemUiVisibility=View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
         binding= ActivitySignupUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        storage=FirebaseStorage.getInstance().getReference().child("UserImages");
+        auth= FirebaseAuth.getInstance()
+        reference=FirebaseDatabase.getInstance().getReference()
         binding.tvLogin.setOnClickListener(View.OnClickListener {
             startActivity(Intent(this,Login::class.java))
             finish()
         })
         binding.SignupBtn.setOnClickListener(View.OnClickListener {
-            startActivity(Intent(this,Login::class.java))
-            finish()
+            savedata()
         })
         binding.RLImage.setOnClickListener(View.OnClickListener {
             val i = Intent(
@@ -103,5 +118,44 @@ class SignupUser : AppCompatActivity() {
                 binding.image.setImageURI(image)
             }
         }
+    }
+    fun savedata() {
+        auth.createUserWithEmailAndPassword(binding.emailSignup.toString().trim(), binding.passwordSignup.toString().trim())
+            .addOnCompleteListener(OnCompleteListener<AuthResult> { task ->
+                if (task.isSuccessful) {
+                    val id = Objects.requireNonNull(task.result.user)!!.uid
+                    val uniqueString = UUID.randomUUID().toString()
+                    val Imagename: StorageReference = storage.child(uniqueString)
+                    try {
+                        Imagename.putFile(image).addOnFailureListener {
+                            Toast.makeText(
+                                applicationContext,
+                                "Select profile picture",
+                                Toast.LENGTH_SHORT
+                            ).show()
+
+
+                            reference.child("User").child("Profile").child(id)
+                                .setValue("huzaifa")
+                        }.addOnSuccessListener {
+                            Imagename.downloadUrl.addOnSuccessListener { uri ->
+
+                                reference.child("Users")
+                                    .child(id).setValue("")
+                                startActivity(Intent(this, Login::class.java))
+                                finish()
+                            }
+                        }
+                    } catch (e: DatabaseException) {
+                        println("Error$e")
+                    }
+                }
+            }).addOnFailureListener(OnFailureListener {
+                Toast.makeText(
+                    applicationContext,
+                    "Error Signing up",
+                    Toast.LENGTH_SHORT
+                ).show()
+            })
     }
 }

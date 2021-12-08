@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "702813331486",
+    "firebase_url": "https://fypapp-54ca0-default-rtdb.firebaseio.com",
+    "project_id": "fypapp-54ca0",
+    "storage_bucket": "fypapp-54ca0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:702813331486:android:58706c5ae57886d1f90e0f",
+        "android_client_info": {
+          "package_name": "com.example.roadsideassistance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "702813331486-hl35kqeg8bfcjsnauv7nbfc1pn4grq17.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.roadsideassistance",
+            "certificate_hash": "2aa2f54f9551997d27ccf7387775a26f15159e01"
+          }
+        },
+        {
+          "client_id": "702813331486-f85dq3mgm69pj2ol4rvindmctuouqau7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwEq7DORHjrBDH1yBQgud3qH6jib9osJs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "702813331486-f85dq3mgm69pj2ol4rvindmctuouqau7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
