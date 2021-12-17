@@ -3,25 +3,29 @@
     package="com.example.roadsideassistance">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
+        android:name=".Utils.OfflineFirebaseCapabilities"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RoadSideAssistance">
-        <activity android:name=".Users.UserHome"></activity>
-        <activity android:name=".Common.PutForgettOtp" />
+        <activity android:name=".Users.User_Home"></activity>
+        <activity android:name=".Provider.Provider_Home" />
+        <activity android:name=".Common.SignIn" />
+        <activity android:name=".Users.User_Signup" />
+        <activity android:name=".Provider.Provider_Signup" />
+        <activity android:name=".Users.UserHome" />
         <activity android:name=".Common.ForgettPassword" />
         <activity android:name=".Common.PutOtp" />
         <activity android:name=".Common.PhoneNumber" />
-        <activity android:name=".Common.Login" />
-        <activity android:name=".Users.SignupUser" />
-        <activity android:name=".Provider.SignupProvider" />
         <activity android:name=".Common.Identity" />
         <activity
-            android:name=".Common.SplashAcreen"
+            android:name=".Common.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,7 +33,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

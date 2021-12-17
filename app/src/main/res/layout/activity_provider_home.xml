@@ -3,187 +3,118 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:id="@+id/drawer"
-    tools:openDrawer="start"
     android:layout_height="match_parent"
-    tools:context=".Users.User_Home">
+    tools:openDrawer="start"
+    android:id="@+id/drawer"
+    tools:context=".Provider.Provider_Home">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+        android:layout_height="match_parent">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title=" ">
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:title=" ">
-        </androidx.appcompat.widget.Toolbar>
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/notifications"
+                android:tint="@color/btncolor2"
+                android:elevation="15dp"
+                android:layout_marginEnd="20dp"
+                android:id="@+id/dialognotification" />
+
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+
         <ImageView
             android:layout_width="150dp"
             android:layout_height="150dp"
+            android:layout_marginTop="20dp"
             android:id="@+id/imageview"
-            android:layout_marginTop="-10dp"
-            android:src="@drawable/users"
+            android:src="@drawable/customer_service"
             app:layout_constraintTop_toBottomOf="@id/toolbar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
-        <ScrollView
-            android:layout_width="match_parent"
-            app:layout_constraintTop_toBottomOf="@id/imageview"
-            android:layout_height="wrap_content">
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:layout_constraintTop_toBottomOf="@id/imageview">
-        <View
-            android:layout_width="1dp"
-            android:layout_height="0dp"
-            android:id="@id/view"
-            android:layout_centerInParent="true"
-             />
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:id="@+id/Rl_Mechanic"
-        android:background="@drawable/btn_background"
-        android:backgroundTint="@color/light_blue"
-        android:layout_toLeftOf="@id/view"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginStart="20dp" >
-
         <TextView
+            android:id="@+id/btnCheckNewRequest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Mechanic"
-            android:textSize="18sp"
-            android:layout_marginTop="10dp"
+            android:padding="20dp"
             android:gravity="center"
-            android:textColor="@color/black" />
-
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/mechanic"
-            android:layout_marginBottom="-10dp"
-            android:layout_alignParentBottom="true" />
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:id="@+id/Rl_Electrician"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/btn_background"
-        android:backgroundTint="@color/light_red"
-        android:layout_toRightOf="@id/view"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginStart="10dp" >
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Electrician"
-            android:textSize="18sp"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:textColor="@color/black" />
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/electrician"
-            android:layout_marginBottom="-10dp"
-            android:layout_alignParentBottom="true" />
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:id="@+id/Rl_Fuel_Supply"
-        android:layout_below="@id/Rl_Mechanic"
-        android:background="@drawable/btn_background"
-        android:backgroundTint="@color/light_orange"
-        android:layout_toLeftOf="@id/view"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginStart="20dp" >
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Fuel Supply"
-            android:textSize="18sp"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:textColor="@color/black" />
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/charging"
-            android:layout_marginBottom="-10dp"
-            android:layout_alignParentBottom="true" />
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_below="@id/Rl_Mechanic"
-        android:id="@+id/Rl_Tyre_Services"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/btn_background"
-        android:backgroundTint="@color/light_green"
-        android:layout_toRightOf="@id/view"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginStart="10dp" >
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tyre Service"
-            android:textSize="18sp"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:textColor="@color/black" />
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/tyre"
-            android:layout_marginBottom="-10dp"
-            android:layout_alignParentBottom="true" />
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_below="@id/Rl_Fuel_Supply"
-        android:id="@+id/Rl_Tow_Chain"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/btn_background"
-        android:backgroundTint="@color/light_gray"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:layout_marginStart="20dp" >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Fuel Supply"
-            android:layout_centerVertical="true"
-            android:layout_alignParentEnd="true"
+            android:elevation="15dp"
+            android:layout_marginStart="50dp"
             android:layout_marginEnd="50dp"
-            android:textSize="18sp"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:textColor="@color/black" />
-        <ImageView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:src="@drawable/tow_truck"
-            android:layout_marginBottom="-10dp"
-            android:layout_alignParentBottom="true" />
-    </RelativeLayout>
-</RelativeLayout>
-        </ScrollView>
+            android:layout_marginTop="50dp"
+            android:background="@drawable/btn_background"
+            android:backgroundTint="@color/btncolor2"
+            android:text="Check for New Request"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/imageview" />
 
+        <TextView
+            android:id="@+id/btnCheckActiveRequest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:elevation="15dp"
+            android:gravity="center"
+            android:layout_marginTop="30dp"
+            android:padding="20dp"
+            android:background="@drawable/btn_background"
+            android:backgroundTint="@color/btncolor2"
+            android:text="Check for Active Request"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/btnCheckNewRequest" />
+        <TextView
+            android:id="@+id/btnpendingorders"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:backgroundTint="@color/btncolor2"
+            android:layout_marginEnd="50dp"
+            android:gravity="center"
+            android:elevation="15dp"
+            android:drawableTint="@color/white"
+            android:layout_marginTop="30dp"
+            android:padding="20dp"
+            android:background="@drawable/btn_background"
+            android:text="Pending Orders"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/btnCheckActiveRequest" />
+
+        <TextView
+            android:id="@+id/btnCompletedOrders"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:gravity="center"
+            android:elevation="15dp"
+            android:layout_marginTop="30dp"
+            android:padding="20dp"
+            android:background="@drawable/btn_background"
+            android:backgroundTint="@color/btncolor2"
+            android:text="Completed Orders"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/btnpendingorders" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navmenu"
         android:layout_width="wrap_content"
@@ -262,7 +193,6 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="5dp" />
             </RelativeLayout>
-
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -279,6 +209,19 @@
                 android:textSize="16sp"
                 android:gravity="center_vertical"
                 android:drawablePadding="4dp"
+                android:padding="15dp"/>
+            <TextView
+                android:id="@+id/MyEarning"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MY Earning"
+                android:textColor="@color/black"
+                android:drawableTint="@color/btncolor2"
+                android:drawableLeft="@drawable/ic_money"
+                android:drawablePadding="4dp"
+                android:textSize="16sp"
+                android:gravity="center_vertical"
+                android:paddingStart="12dp"
                 android:padding="15dp"/>
             <TextView
                 android:layout_width="match_parent"

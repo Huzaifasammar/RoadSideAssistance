@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:background="@color/background"
     android:layout_height="match_parent"
-    tools:context=".Users.SignupUser">
-    <androidx.core.widget.NestedScrollView
+    tools:context=".Users.User_Signup">
+    <ScrollView
         android:layout_width="match_parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_height="wrap_content">
@@ -189,12 +189,12 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"
                 app:layout_constraintStart_toStartOf="parent"
-                android:textColor="@color/teal_200"
+                android:textColor="@color/btncolor2"
                 android:id="@+id/tv_login" />
 
 
 
         </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
