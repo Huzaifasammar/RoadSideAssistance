@@ -121,7 +121,7 @@ public class Provider_Signup extends AppCompatActivity {
                 if ( !validateusername() || !validateemail() || !validatePassword()){
                     Log.d(TAG, "onClick: "+" Validation failed");
                 }
-                else if(image.equals(null))
+                else if(image.equals(""))
                 {
                     Toast.makeText(getApplicationContext(),"PLease Select Image",Toast.LENGTH_SHORT).show();
                 }
@@ -210,7 +210,7 @@ public class Provider_Signup extends AppCompatActivity {
 
                                 Toast.makeText(getApplicationContext(), "Select profile picture", Toast.LENGTH_SHORT).show();
                                 ProviderModel helper = new ProviderModel("",binding.nameSignup.getText().toString().trim(),binding.emailSignup.getText().toString().trim(),
-                                        binding.passwordSignup.getText().toString().trim(),binding.selectservices.getText().toString(),id,device_token,phoneNumber);
+                                        binding.passwordSignup.getText().toString().trim(),binding.selectservices.getText().toString(),id,device_token,phoneNumber,binding.addressSignup.getText().toString(),"");
                                 reference.child("Providers").child("Profile").child(id).setValue(helper);
                             }
                         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -220,7 +220,7 @@ public class Provider_Signup extends AppCompatActivity {
                                     @Override
                                     public void onSuccess(Uri uri) {
                                         ProviderModel helper = new ProviderModel(uri.toString(),binding.nameSignup.getText().toString().trim(),binding.emailSignup.getText().toString().trim(),
-                                                binding.passwordSignup.getText().toString().trim(),binding.selectservices.getText().toString(),id,device_token,phoneNumber);
+                                                binding.passwordSignup.getText().toString().trim(),binding.selectservices.getText().toString(),id,device_token,phoneNumber,binding.addressSignup.getText().toString(),"");
                                         reference.child("Providers").child("Profile").child(id).setValue(helper);
                                         dialog.dismiss();
                                         startActivity(new Intent(Provider_Signup.this, SignIn.class));

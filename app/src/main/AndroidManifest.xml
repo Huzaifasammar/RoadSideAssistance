@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.roadsideassistance">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -14,12 +16,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RoadSideAssistance">
-        <activity android:name=".Users.User_Home"></activity>
+        <activity android:name=".Common.TrackOrderActivity"></activity>
+        <activity android:name=".Provider.Order_Activity" />
+        <activity
+            android:name=".Users.ProviderDetails"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".Users.User_Home" />
         <activity android:name=".Provider.Provider_Home" />
         <activity android:name=".Common.SignIn" />
         <activity android:name=".Users.User_Signup" />
         <activity android:name=".Provider.Provider_Signup" />
-        <activity android:name=".Users.UserHome" />
         <activity android:name=".Common.ForgettPassword" />
         <activity android:name=".Common.PutOtp" />
         <activity android:name=".Common.PhoneNumber" />

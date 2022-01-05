@@ -1,9 +1,9 @@
 package com.example.roadsideassistance.Models;
 
 public class ProviderModel {
-    String imageURL,username,email,password,service,id,device_token,phone_number;
+    String imageURL,username,email,password,service,id,device_token,phone_number,address,reviews;
 
-    public ProviderModel(String imageURL, String username, String email, String password, String service, String id,String device_token,String phone_number) {
+    public ProviderModel(String imageURL, String username, String email, String password, String service, String id,String device_token,String phone_number,String address,String reviews) {
         this.imageURL = imageURL;
         this.username = username;
         this.email = email;
@@ -12,8 +12,27 @@ public class ProviderModel {
         this.id = id;
         this.device_token=device_token;
         this.phone_number=phone_number;
+        this.address=address;
+        this.reviews=reviews;
 
     }
+
+    public String getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(String reviews) {
+        this.reviews = reviews;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public ProviderModel(){}
 
 

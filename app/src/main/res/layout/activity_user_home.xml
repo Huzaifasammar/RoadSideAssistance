@@ -9,11 +9,13 @@
     tools:context=".Users.User_Home">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content">
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/btncolor2"
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +26,7 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:id="@+id/imageview"
-            android:layout_marginTop="-10dp"
+            android:layout_marginTop="10dp"
             android:src="@drawable/users"
             app:layout_constraintTop_toBottomOf="@id/toolbar"
             app:layout_constraintStart_toStartOf="parent"
@@ -165,7 +167,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Fuel Supply"
+            android:text="Tow Chain"
             android:layout_centerVertical="true"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="50dp"
@@ -199,6 +201,7 @@
             android:orientation="vertical">
             <RelativeLayout
                 android:layout_width="match_parent"
+                android:background="@color/btncolor2"
                 android:layout_height="wrap_content">
 
                 <LinearLayout
@@ -234,7 +237,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_centerHorizontal="true"
                     android:layout_below="@id/ll_img"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:id="@+id/ridername"
                     android:text="username"
                     android:textSize="18sp" />
@@ -244,30 +247,25 @@
                     android:gravity="center"
                     android:layout_below="@id/ridername"
                     android:layout_centerHorizontal="true"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:id="@+id/riderrating"
-                    android:text="5.0"
+                    android:text="No rating"
+                    android:layout_marginBottom="10dp"
                     android:paddingTop="5dp"
                     android:textSize="14sp" />
                 <Switch
                     android:id="@+id/switchNotifactiondrawer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:thumbTint="@color/btncolor2"
+                    android:thumbTint="@color/white"
                     android:layout_marginBottom="10dp"
                     android:layout_toEndOf="@id/ridername"
                     android:layout_below="@id/ll_img"
-                    android:trackTint="@color/black"
+                    android:trackTint="@color/light_gray"
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="5dp" />
             </RelativeLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/btncolor2" />
             <TextView
                 android:id="@+id/profle"
                 android:layout_width="match_parent"

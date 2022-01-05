@@ -13,6 +13,9 @@ public class UserModel {
         this.phone_number=phone_number;
     }
 
+    public UserModel() {
+    }
+
     public String getPhone_number() {
         return phone_number;
     }

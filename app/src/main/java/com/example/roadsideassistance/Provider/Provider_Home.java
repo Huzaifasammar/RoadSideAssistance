@@ -42,6 +42,7 @@ public class Provider_Home extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setStatusBarColor(getResources().getColor(R.color.btncolor));
         binding=ActivityProviderHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         binding.toolbar.setNavigationIcon(R.drawable.ic_menu);
@@ -49,6 +50,7 @@ public class Provider_Home extends AppCompatActivity {
         auth=FirebaseAuth.getInstance();
         reference= FirebaseDatabase.getInstance().getReference();
         toggle = new ActionBarDrawerToggle(this, binding.drawer, binding.toolbar, R.string.open, R.string.close);
+        binding.toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_menu));
         binding.drawer.addDrawerListener(toggle);
         currentUser=FirebaseAuth.getInstance().getCurrentUser();
         reference.child("Providers").child("Profile").child(currentUser.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -76,6 +78,42 @@ public class Provider_Home extends AppCompatActivity {
                 auth.signOut();
                 startActivity(new Intent(Provider_Home.this, SignIn.class));
                 finish();
+            }
+        });
+        binding.btnCheckNewRequest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(Provider_Home.this,Order_Activity.class);
+                i.putExtra("heading","New Request");
+                i.putExtra("status","new");
+                startActivity(i);
+            }
+        });
+        binding.btnCheckActiveRequest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(Provider_Home.this,Order_Activity.class);
+                i.putExtra("heading","Active Order");
+                i.putExtra("status","active");
+                startActivity(i);
+            }
+        });
+        binding.btnpendingorders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(Provider_Home.this,Order_Activity.class);
+                i.putExtra("heading","Pending Order");
+                i.putExtra("status","pending");
+                startActivity(i);
+            }
+        });
+        binding.btnCompletedOrders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(Provider_Home.this,Order_Activity.class);
+                i.putExtra("heading","Completed Order");
+                i.putExtra("status","completed");
+                startActivity(i);
             }
         });
     }

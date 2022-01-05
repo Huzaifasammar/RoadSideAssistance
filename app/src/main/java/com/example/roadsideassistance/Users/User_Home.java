@@ -33,8 +33,15 @@ public class User_Home extends AppCompatActivity {
     final String TAG="USER_HOME";
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finishAffinity();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setStatusBarColor(getResources().getColor(R.color.btncolor));
         binding=ActivityUserHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         binding.toolbar.setNavigationIcon(R.drawable.ic_menu);
@@ -43,6 +50,7 @@ public class User_Home extends AppCompatActivity {
         reference= FirebaseDatabase.getInstance().getReference();
         toggle = new ActionBarDrawerToggle(this, binding.drawer, binding.toolbar, R.string.open, R.string.close);
         binding.drawer.addDrawerListener(toggle);
+        binding.toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_menu));
         currentUser=FirebaseAuth.getInstance().getCurrentUser();
         reference.child("Users").child("Profile").child(currentUser.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -68,6 +76,51 @@ public class User_Home extends AppCompatActivity {
             public void onClick(View view) {
                 auth.signOut();
                 startActivity(new Intent(User_Home.this, SignIn.class));
+                finish();
+            }
+        });
+        binding.RlElectrician.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(User_Home.this,ProviderDetails.class);
+                i.putExtra("service","Electrician");
+                startActivity(i);
+                finish();
+            }
+        });
+        binding.RlFuelSupply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(User_Home.this,ProviderDetails.class);
+                i.putExtra("service","Fuel Supply");
+                startActivity(i);
+                finish();
+            }
+        });
+        binding.RlMechanic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(User_Home.this,ProviderDetails.class);
+                i.putExtra("service","Mechanic");
+                startActivity(i);
+                finish();
+            }
+        });
+        binding.RlTowChain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(User_Home.this,ProviderDetails.class);
+                i.putExtra("service","Tow Chain");
+                startActivity(i);
+                finish();
+            }
+        });
+        binding.RlTyreServices.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(User_Home.this,ProviderDetails.class);
+                i.putExtra("service","Tyre Services");
+                startActivity(i);
                 finish();
             }
         });

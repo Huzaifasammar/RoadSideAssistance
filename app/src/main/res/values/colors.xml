@@ -18,4 +18,5 @@
     <color name="light_orange">#F6DDCC </color>
     <color name="light_red">#FDEBD0 </color>
     <color name="light_gray">#D6DBDF </color>
+    <color name="new_background">#F0EFF2 </color>
 </resources>

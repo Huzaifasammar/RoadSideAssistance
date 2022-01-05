@@ -13,6 +13,7 @@
         android:layout_height="match_parent">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
+        android:background="@color/btncolor2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
@@ -29,7 +30,7 @@
                 android:layout_height="30dp"
                 android:layout_alignParentEnd="true"
                 android:src="@drawable/notifications"
-                android:tint="@color/btncolor2"
+                android:tint="@color/white"
                 android:elevation="15dp"
                 android:layout_marginEnd="20dp"
                 android:id="@+id/dialognotification" />
@@ -57,10 +58,10 @@
             android:layout_marginEnd="50dp"
             android:layout_marginTop="50dp"
             android:background="@drawable/btn_background"
-            android:backgroundTint="@color/btncolor2"
+            android:backgroundTint="@color/light_blue"
             android:text="Check for New Request"
             android:textAllCaps="false"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@+id/imageview" />
 
         <TextView
@@ -74,27 +75,26 @@
             android:layout_marginTop="30dp"
             android:padding="20dp"
             android:background="@drawable/btn_background"
-            android:backgroundTint="@color/btncolor2"
+            android:backgroundTint="@color/light_red"
             android:text="Check for Active Request"
             android:textAllCaps="false"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@+id/btnCheckNewRequest" />
         <TextView
             android:id="@+id/btnpendingorders"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
-            android:backgroundTint="@color/btncolor2"
+            android:backgroundTint="@color/light_green"
             android:layout_marginEnd="50dp"
             android:gravity="center"
             android:elevation="15dp"
-            android:drawableTint="@color/white"
             android:layout_marginTop="30dp"
             android:padding="20dp"
             android:background="@drawable/btn_background"
             android:text="Pending Orders"
             android:textAllCaps="false"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@+id/btnCheckActiveRequest" />
 
         <TextView
@@ -108,10 +108,10 @@
             android:layout_marginTop="30dp"
             android:padding="20dp"
             android:background="@drawable/btn_background"
-            android:backgroundTint="@color/btncolor2"
+            android:backgroundTint="@color/light_gray"
             android:text="Completed Orders"
             android:textAllCaps="false"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@+id/btnpendingorders" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -177,7 +177,7 @@
                     android:layout_centerHorizontal="true"
                     android:textColor="@color/black"
                     android:id="@+id/riderrating"
-                    android:text="5.0"
+                    android:text="No rating"
                     android:paddingTop="5dp"
                     android:textSize="14sp" />
                 <Switch
